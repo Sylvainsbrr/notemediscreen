@@ -53,6 +53,7 @@ public class PatientNoteController {
     @ApiResponses(value = {@ApiResponse(code = 404, message = "The patient with id {id} have already a note in database")})
     @PostMapping(value = "/patient-note")
     public PatientNote savePatientNote(@RequestBody PatientNote patientNote){
+        System.out.println("test");
         PatientNote patientNoteToSave = patientNoteRepository.findPatientNoteByPatientId(patientNote.getPatientId());
         if(Objects.isNull(patientNoteToSave)){
             patientNoteRepository.save(patientNote);
